@@ -18,6 +18,15 @@ The CRISP-DM process is followed in 4 Jupyter Notebooks:
     
 The **stylesense** module contains the custom transformers used in the model. The module code and distribution packaged is part of this code base.
 
+## Structure
+
+The project has the following folders:
+* **data**: contains the raw and pre-processed review data plus the exported trained model.
+* **notebooks**: contains the CRIPS-DM workflow in separate notebooks as explained above.
+* **src/stylesense**: contains the module with custom transformers used in the model
+* **src/dist**: contains the packaged stylesense module
+* **tests**: contains a simple test to check if the environment is correctly configured.
+
 ## Dependencies
 
 Packages required for the analysis:
