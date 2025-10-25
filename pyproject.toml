@@ -5,6 +5,7 @@ description = "Data Science Pipeline Project"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+    "stylesense",
     "notebook>=7.4.7",
     "numpy>=2.3.4",
     "pandas>=2.3.3",
@@ -12,10 +13,15 @@ dependencies = [
     "spacy>=3.8.7",
     "en_core_web_sm",
     "seaborn>=0.13.2",
+    "joblib>=1.5.2",
+    "ruff>=0.14.2",
+    "pytest>=8.4.2",
 ]
 
 [tool.uv.sources]
 "en_core_web_sm" = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl"}
+stylesense = { path = "src/dist/stylesense-1.0.0.tar.gz" }
+
 
 [tool.pyright]
 pythonVersion = "3.12"
@@ -36,10 +42,13 @@ exclude = [
 
 [tool.ruff.lint]
 extend-select = ["N", "E5", "I"]
-ignore = ["N818"]
+ignore = ["N818", "N803"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.setuptools.packages.find]
+exclude = ["src"]
 
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]

@@ -1,23 +1,55 @@
-Scenario: Fashion Forward Forecasting
-You've recently joined "StyleSense", a rapidly growing online women's clothing retailer, as a data scientist. StyleSense is known for its trendy and affordable fashion, and its customer base has exploded in recent months. This influx of new customers is fantastic for business, but it has created a challenge: a backlog of product reviews with missing data. Customers are still leaving valuable feedback in the text of their reviews, but they aren't always indicating whether they recommend the product.
+# Fashion Forward Forecasting
 
-Your first task at StyleSense is to leverage the existing data– those reviews with complete information – to build a predictive model.
+This project uses a data science pipeline to predict the probability of a positive recommendation based on reviews given to a clothing article.
 
-This model will analyze the text of a review, the customer's age, the product category, and other relevant information to predict whether or not the customer would recommend the product. By automating this process, you'll help StyleSense gain valuable insights into customer satisfaction, identify trending products, and ultimately provide a better shopping experience for their growing customer base.
+## Getting started
 
-The future of fashion forecasting is in your hands!
+The CRISP-DM process is followed in 4 Jupyter Notebooks:
+* **01_data_understanding**: Explores the data and the relation between the different review properties.
+    * Requirements: data/reviews.csv
+* **02_data_preparation**: Cleans the data and pre-processes text columns for more efficient modelling. .
+    * Requirements: data/reviews.csv + stylesense module
+    * Creates: data/reviews_processed.csv
+* **03_modelling**: Creates a pipeline to fit and evaluate a prediction model for the recommendation probability.
+    * Requirements: data/reviews_processed.csv + stylesense module
+    * Creates: data/model.joblib
+* **04_deployment**: Shows a proof of principle of how new data can be fitted with the model.
+    * Requirements: data/model.joblib + stylesense module
+    
+The **stylesense** module contains the custom transformers used in the model. The module code and distribution packaged is part of this code base.
 
-Instructions
+## Dependencies
 
-You will be using the provided data to create a machine learning model pipeline.
-You must handle the data appropriately in your pipeline to predict whether or not a customer would recommend a product based on the other features. Note the data includes numerical, categorical, and text data.
-You should ensure you properly train and evaluate your model.
+Packages required for the analysis:
+```
+numpy
+pandas
+seaborn
+scikit-learn
+joblib
 
+# spacy nlp
+spacy
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
 
-TASKS:
-* Create preprocessing steps for the proper data types to be used in a model pipeline
-* Create steps for processing text data to be used in a model pipeline
-* Create steps for creating features from text data to be used in a model pipeline
-* Create a model pipeline that combines your processing, feature engineering, and model prediction steps
-* Fine-tune your model pipeline to find optimal hyperparameters for your model
-* Evaluate with test data your final model pipeline after being trained with all the training data
+# stylesense module
+./src/dist/stylesense-1.0.0.tar.gz
+```
+
+Packages required for the IDE
+```
+ruff
+pyright
+pytest
+setuptools
+```
+
+## Installation
+
+There are two ways to install this project:
+* Use uv (https://docs.astral.sh/uv/) and sync with pyproject.toml
+* Run pip install -r /requirements.txt
+
+## License
+
+[License](LICENSE.txt)
