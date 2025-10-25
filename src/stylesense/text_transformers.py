@@ -68,8 +68,8 @@ class TextProcessor(BaseEstimator, TransformerMixin):
                 X["Title"].apply(lambda txt: self._process_text("title", txt)).apply(pd.Series),
                 X["Review Text"].apply(lambda txt: self._process_text("review_text", txt)).apply(pd.Series),
             ],
-            axis=0,
-            ignore_index=True,
+            axis=1,
+            ignore_index=False,
         )
         self.columns_ = result.columns
         return result
