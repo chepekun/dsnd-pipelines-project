@@ -1772,7 +1772,7 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "spacy" },
 ]
-sdist = { hash = "sha256:aaef920500803efc4a25a339acfbd9df2e90596f086e5d52cb142a577f0430aa" }
+sdist = { hash = "sha256:29f03a8fd1d1ee16d83142a4c7dc1eb398c141d4605357010bd074a85262d1a6" }
 
 [package.metadata]
 requires-dist = [
